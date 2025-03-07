@@ -1,0 +1,240 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor común */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #111;
+    padding: 20px 0;
+}
+
+header .logo {
+    font-size: 36px;
+    color: #fff;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    background-color: transparent;
+    border: solid 2px white;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+header nav ul li a:hover {
+    color: #eeff00;
+    border-color: #eeff00;
+}
+
+/* Sección sobre mí */
+#sobre-mi {
+    background-color: #222;
+    animation: fadeInUp 1s ease-out;
+    padding: 50px 0;
+}
+
+#sobre-mi .container {
+    flex-direction: row;
+}
+
+.sobre-mi-texto {
+    width: 50%;
+    text-align: left;
+}
+
+.sobre-mi-texto h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.sobre-mi-texto p {
+    font-size: 18px;
+}
+
+.sobre-mi-imagen {
+    width: 30%;
+    text-align: center;
+}
+
+.sobre-mi-imagen img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.sobre-mi-imagen img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos para los iconos sociales */
+.social-icons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 40px;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #eeff00;
+    transform: scale(1.1);
+}
+
+/* Sección de trabajos */
+#trabajos {
+    background-color: #333;
+    padding: 50px 0;
+}
+
+#trabajos h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #fff;
+    text-align: center; /* Título centrado */
+}
+
+.galeria {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.video {
+    width: 30%; /* Reducir el tamaño de los videos */
+    background-color: #444; /* Fondo gris oscuro */
+    border-radius: 8px; /* Bordes más redondeados */
+    overflow: hidden; /* Eliminar bordes exteriores innecesarios */
+    margin-bottom: 20px; /* Separar los videos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suavizar la transición */
+}
+
+.video:hover {
+    transform: scale(1.05); /* Suavizar el hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombras más sutiles */
+}
+
+.video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.video p {
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .sobre-mi-texto,
+    .sobre-mi-imagen {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sobre-mi-imagen img {
+        max-width: 80%;
+    }
+
+    #trabajos h2 {
+        font-size: 24px;
+    }
+
+    .video {
+        width: 100%;
+    }
+
+    footer p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    header .logo {
+        font-size: 28px;
+    }
+
+    .sobre-mi-texto h2,
+    .sobre-mi-texto p {
+        font-size: 16px;
+    }
+
+    .video p {
+        font-size: 14px;
+    }
+
+    footer p {
+        font-size: 16px;
+    }
+
+    footer .social-icons a {
+        font-size: 24px;
+    }
+}
