@@ -5,6 +5,24 @@
     box-sizing: border-box;
 }
 
+/* Estilo del scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* Ajusta el tamaño del scrollbar */
+  }
+  
+  /* Estilo del pulgar del scrollbar (la parte que se mueve) */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(47, 0, 255, 0.5); /* Negro con opacidad */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  /* Estilo del track del scrollbar (la parte fija) */
+  ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo del track con transparencia */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+
 /* Estilo global */
 body {
     font-family: Arial, sans-serif;
@@ -31,37 +49,18 @@ header {
 }
 
 header .logo {
-    font-size: 36px;
     color: #fff;
-}
-
-header nav ul {
-    list-style: none;
     display: flex;
+    text-align: center;
+    font-size: 36px;
 }
 
-header nav ul li {
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    background-color: transparent;
-    border: solid 2px white;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-header nav ul li a:hover {
-    color: #eeff00;
-    border-color: #eeff00;
-}
 
 /* Sección sobre mí */
 #sobre-mi {
     background-color: #222;
+    border-radius: 30px;
+    border-color: #001aff;
     animation: fadeInUp 1s ease-out;
     padding: 50px 0;
 }
@@ -111,21 +110,25 @@ header nav ul li a:hover {
 }
 
 .social-icons a {
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 30px;
     color: #fff;
     font-size: 40px;
     margin: 0 15px;
+    padding: 10px;  /* Agregar relleno para ampliar el espacio dentro del borde */
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: #eeff00;
+    color: #001aff;
     transform: scale(1.1);
 }
 
 /* Sección de trabajos */
 #trabajos {
-    background-color: #333;
+    background-color: #363333;
     padding: 50px 0;
 }
 
@@ -143,9 +146,11 @@ header nav ul li a:hover {
     gap: 20px; /* Espacio entre los elementos */
 }
 
+
+/* PROYECTOS EDITADOS QUE SON LOS VIDEOS */
 .video {
+    background-color: #000000; /* Fondo gris oscuro */
     width: 30%; /* Reducir el tamaño de los videos */
-    background-color: #444; /* Fondo gris oscuro */
     border-radius: 8px; /* Bordes más redondeados */
     overflow: hidden; /* Eliminar bordes exteriores innecesarios */
     margin-bottom: 20px; /* Separar los videos */
