@@ -180,9 +180,6 @@ section p {
 }
 
 
-
-
-
 /* Sección de portafolio */
 #portafolio {
     background-color: #000000;
@@ -205,6 +202,19 @@ section p {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+/* Agregar animación de entrada */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card {
@@ -215,6 +225,9 @@ section p {
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
+    opacity: 0; /* Inicialmente invisibles */
+    animation: fade-in 1s forwards; /* Aparece con un fade-in */
+    animation-delay: 0.3s; /* Añadir un pequeño retraso entre cada tarjeta */
 }
 
 .card-content ul {
@@ -266,8 +279,6 @@ section p {
     background-color: #110b00;
     color: white;
 }
-
-
 
 
 /* Responsividad para dispositivos pequeños (móviles) */
@@ -355,8 +366,9 @@ section p {
         gap: 30px;
         align-items: center;
     }
-  }
-   /* Estilos predeterminados para escritorio (PC) */
+}
+
+/* Estilos predeterminados para escritorio (PC) */
 .card {
     width: 200px; /* Tamaño para escritorio */
     height: 280px;
@@ -389,6 +401,7 @@ section p {
         width: 90%; /* Reducción del tamaño de las tarjetas en móviles */
         height: auto;
         margin-bottom: 20px;
+        animation-delay: 0.5s; /* Ajuste en el retraso de animación */
     }
 
     .card img {
@@ -400,7 +413,6 @@ section p {
         padding: 6px 12px;
     }
 }
-
 
 /* Responsividad para dispositivos muy pequeños (móviles más pequeños) */
 @media (max-width: 480px) {
@@ -492,7 +504,8 @@ section p {
     }
 
     .card {
-        width: 30%; /* Mantenemos las tarjetas de proyecto con un 30% de ancho */
+        width: 100%; /* Mantenemos las tarjetas de proyecto con un 30% de ancho */
+        height: 480px;
         display: flex;
         flex-direction: column;
         text-align: center;
