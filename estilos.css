@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* Estilos generales del sitio */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,33 +10,473 @@ body {
     scroll-behavior: smooth;
 }
 
-
-/* Estilos para las secciones */
-section {
-    height: 100vh;
+/* Estilos para el inicio */
+#inicio {
+    background-color: #000000;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+#inicio .text-container {
+    max-width: 50%;
+}
+
+#inicio h1 {
+    text-align: left;
+    color: white;
+    font-size: 48px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Para aplicar el efecto de subrayado */
+    opacity: 0;
+    transform: translateX(-100%); /* Comienza fuera de la pantalla a la izquierda */
+    animation: deslizar 1s ease-out forwards, subrayado 1s ease-out forwards; /* Animación de deslizamiento y subrayado */
+}
+
+#inicio p {
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: deslizar 1s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+/* Animación de deslizamiento desde la izquierda */
+@keyframes deslizar {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación de subrayado azul en el título */
+@keyframes subrayado {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Efecto de subrayado azul */
+#inicio h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #3498db; /* Azul */
+    transition: width 0.3s ease;
+}
+
+/* Animación de burbuja rápida para la imagen */
+#inicio img {
+    width: 300px;
+    border-radius: 60px;
+    animation: burbuja 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes burbuja {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Inicialmente, ocultamos los iconos de redes sociales */
+.social-links a {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.6s ease-out forwards;
+}
+
+/* Animación para los iconos de redes sociales */
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicamos retraso para cada icono */
+.social-links a:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.social-links a:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.social-links a:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Efecto al pasar el cursor (hover) sobre los iconos */
+.social-links a:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+/* Estilos para la sección "Acerca de mí" */
+#acerca-de {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Animación de deslizamiento de los elementos en la sección "Acerca de mí" */
+#acerca-de h1, #acerca-de p {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aparecer-desde-abajo 1s ease-out forwards;
+}
+
+@keyframes aparecer-desde-abajo {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Retrasos para los elementos en "Acerca de mí" */
+#acerca-de h1 {
+    animation-delay: 0.3s;
+}
+
+#acerca-de p {
+    animation-delay: 0.6s;
+}
+
+/* Animación para la imagen en "Acerca de mí" */
+#acerca-de img {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer-imagen 1s ease-out forwards;
+    animation-delay: 0.9s;
+}
+
+@keyframes aparecer-imagen {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para la sección "Portafolio" */
+#portafolio {
+    background-color: #000000;
+    color: white;
+    padding: 50px;
+}
+
+#portafolio h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#portafolio p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Animación para las tarjetas del portafolio */
+.proyectos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para las tarjetas */
+.card {
+    background-color: #333;
+    color: white;
+    width: 300px;
+    height: 460px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    opacity: 0;
+    animation: fade-in 1s forwards;
+    animation-delay: 0.3s;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+/* Estilos para la descripción de las tarjetas */
+.card-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h2 {
+    margin-bottom: 10px;
+}
+
+.card-content li {
+    margin-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
     padding: 20px;
-    margin-top: 0;
-    margin-bottom: 0;
-    box-sizing: border-box;
+}
+
+/* Estilos para los enlaces en las tarjetas */
+.card .link-proyecto {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 12px 25px;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.card .link-proyecto:hover {
+    color: #e34c26;
+    border-color: #e34c26;
+}
+
+.card .link-proyecto::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #e34c26;
+    transition: width 0.3s ease;
+}
+
+.card .link-proyecto:hover::after {
     width: 100%;
 }
 
-/* Títulos dentro de las secciones */
-section h1 {
-    font-size: 36px;
-    color: white;
+/* Estilos para las tecnologías */
+.tecnologias {
+    margin-top: 40px;
 }
 
-/* Texto dentro de las secciones */
-section p {
+.tecnologias h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tecnologias-lista {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.tecnologias-lista span {
+    background-color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 18px;
-    color: white;
+    padding: 13px;
+    border-radius: 12px;
 }
 
-/* Estilos para la sección "Inicio" */
+/* Animación de rebote para los iconos de tecnología */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tech-icon {
+    font-size: 50px;
+    color: white;
+    transition: transform 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+/* Estilos para los iconos de tecnología */
+.tech-html { color: #e34c26; }
+.tech-css { color: #264de4; }
+.tech-javascript { color: #f0db4f; }
+.tech-react { color: #61dbfb; }
+
+/* Responsividad para dispositivos móviles Android y tablets (máx 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #portafolio {
+        padding: 30px;
+    }
+
+    #portafolio h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .proyectos-container {
+        flex-direction: column; /* Colocamos las tarjetas en una columna */
+        gap: 20px;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%; /* Ancho reducido de las tarjetas en pantallas pequeñas */
+        height: auto;
+        margin-bottom: 20px;
+        animation-delay: 0.5s;
+    }
+
+    .card img {
+        height: 150px; /* Ajuste en la altura de la imagen */
+    }
+
+    .link-proyecto {
+        font-size: 16px; /* Reducimos el tamaño del enlace */
+        padding: 8px 16px;
+    }
+}
+
+/* Responsividad para pantallas más pequeñas (móviles más pequeños, 480px o menos) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    #portafolio {
+        padding: 20px;
+    }
+
+    #portafolio h1 {
+        font-size: 28px;
+    }
+
+    .proyectos-container {
+        flex-direction: column; /* Las tarjetas se apilan verticalmente */
+        gap: 15px;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%; /* Aseguramos que las tarjetas ocupen todo el ancho de la pantalla */
+        height: auto;
+    }
+
+    .card img {
+        height: 120px; /* Reducimos aún más la altura de las imágenes */
+    }
+
+    .link-proyecto {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* Responsividad para pantallas grandes (1200px y más) */
+@media (min-width: 1200px) {
+    #portafolio {
+        padding: 80px;
+    }
+
+    #portafolio h1 {
+        font-size: 40px;
+        text-align: left;
+    }
+
+    .proyectos-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    .card {
+        width: 300px; /* Volvemos al tamaño original de las tarjetas */
+        height: 460px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+}
+
+/* Estilos generales del sitio */
+
 #inicio {
     background-color: #000000;
     display: flex;
@@ -76,21 +516,19 @@ section p {
     text-decoration: none;
 }
 
-/* Estilo de la foto a la derecha */
 #inicio img {
     width: 300px;
     border-radius: 60px;
 }
 
-/* Estilos para la sección "Acerca de" */
 #acerca-de {
     background-color: #000000;
     display: flex;
-    flex-direction: column;  /* Alineamos el contenido verticalmente */
+    flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centramos el contenido */
+    align-items: center;
     padding: 50px;
-    text-align: center; /* Centra el texto dentro de la sección */
+    text-align: center;
 }
 
 #acerca-de h1 {
@@ -99,7 +537,7 @@ section p {
 }
 
 #acerca-de p {
-    max-width: 60%; /* Limita el ancho del párrafo */
+    max-width: 60%;
     color: white;
     font-size: 18px;
     margin-top: 20px;
@@ -120,7 +558,7 @@ section p {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 20px; /* Espaciado entre los spans y los iconos */
+    margin-bottom: 20px;
 }
 
 .tecnologias-lista span {
@@ -135,35 +573,34 @@ section p {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 40px; /* Separar un poco más los iconos de los textos */
+    margin-top: 40px;
 }
 
-/* Iconos de Font Awesome */
 .tech-icon {
     font-size: 50px;
     color: white;
     transition: transform 0.3s ease;
-    animation: bounce 2s infinite; /* Animación de rebote */
+    animation: bounce 2s infinite;
 }
 
 .tech-html {
-    color: #e34c26; 
+    color: #e34c26;
 }
 
 .tech-css {
-    color: #1572b6; 
+    color: #1572b6;
 }
 
 .tech-js {
-    color: #f7df1e; 
+    color: #f7df1e;
 }
 
 .tech-react {
-    color: #61dafb; 
+    color: #61dafb;
 }
 
 .tech-node {
-    color: #68a063; 
+    color: #68a063;
 }
 
 @keyframes bounce {
@@ -176,120 +613,17 @@ section p {
 }
 
 .tech-icon:hover {
-    transform: scale(1.2); 
+    transform: scale(1.2);
 }
 
-
-/* Sección de portafolio */
-#portafolio {
-    background-color: #000000;
-    color: white;
-    padding: 50px;
-}
-
-#portafolio h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-#portafolio p {
-    font-size: 18px;
-    margin-bottom: 40px;
-}
-
-.proyectos-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-/* Agregar animación de entrada */
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card {
-    background-color: #333;
-    color: white;
-    width: 300px;
-    height: 460px;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    opacity: 0; /* Inicialmente invisibles */
-    animation: fade-in 1s forwards; /* Aparece con un fade-in */
-    animation-delay: 0.3s; /* Añadir un pequeño retraso entre cada tarjeta */
-}
-
-.card-content ul {
-    list-style: none; 
-    padding: 0;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 20px;
-    text-decoration: none;
-}
-
-.card h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.card .descripcion {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.card .tecnologias span {
-    font-size: 14px;
-    background-color: #ffffff;
-    color: black;
-    padding: 50px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-.link-proyecto {
-    color: #ffffff;
-    font-size: 18px;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid #fdfdfd;
-    border-radius: 5px;
-    margin-top: 15px;
-}
-
-.link-proyecto:hover {
-    background-color: #110b00;
-    color: white;
-}
-
-
-/* Responsividad para dispositivos pequeños (móviles) */
+/* Responsividad para dispositivos móviles Android */
 @media (max-width: 768px) {
     body {
         padding: 10px;
     }
 
-    /* Estilos para la sección "Inicio" */
     #inicio {
-        flex-direction: column; /* Coloca los elementos en columna */
+        flex-direction: column;
         padding: 30px;
     }
 
@@ -299,18 +633,17 @@ section p {
     }
 
     #inicio img {
-        width: 80%; /* Reducimos el tamaño de la imagen */
+        width: 80%;
         border-radius: 50%;
         margin-top: 20px;
     }
 
-    /* Estilos para la sección "Acerca de" */
     #acerca-de {
         padding: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center; /* Centra los textos */
+        text-align: center;
     }
 
     #acerca-de h1 {
@@ -321,7 +654,7 @@ section p {
     #acerca-de p {
         font-size: 16px;
         max-width: 100%;
-        margin-top: 40px; /* Separar más el texto de la imagen */
+        margin-top: 40px;
     }
 
     #acerca-de .image-container {
@@ -331,27 +664,25 @@ section p {
     }
 
     #acerca-de img {
-        width: 80%; /* Ajustamos el tamaño de la imagen */
+        width: 80%;
         border-radius: 50%;
     }
 
-    /* Tecnologías */
     .tecnologias-lista {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; /* Centra los íconos */
+        justify-content: center;
         gap: 20px;
         align-items: center;
     }
 
     .tecnologias-icons {
         display: flex;
-        justify-content: center; /* Centra los íconos */
+        justify-content: center;
         gap: 20px;
-        flex-wrap: nowrap; /* Asegura que los iconos estén en una fila horizontal */
+        flex-wrap: nowrap;
     }
 
-    /* Estilos para la sección "Portafolio" */
     #portafolio {
         padding: 30px;
     }
@@ -362,92 +693,9 @@ section p {
     }
 
     .proyectos-container {
-        flex-direction: column; /* Coloca las tarjetas de proyecto en columna */
+        flex-direction: column;
         gap: 30px;
         align-items: center;
-    }
-}
-
-/* Estilos predeterminados para escritorio (PC) */
-.card {
-    width: 200px; /* Tamaño para escritorio */
-    height: 280px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column; /* Asegura que el contenido de la tarjeta se apile verticalmente */
-    text-align: center;
-}
-
-.card img {
-    width: 100%;
-    height: 150px; /* Tamaño de la imagen en escritorio */
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 20px;
-    text-align: center;
-}
-
-/* Link proyecto */
-.link-proyecto {
-    font-size: 16px;
-    padding: 8px 16px;
-}
-
-/* Responsividad para dispositivos móviles Android */
-@media (max-width: 768px) {
-    .card {
-        width: 90%; /* Reducción del tamaño de las tarjetas en móviles */
-        height: auto;
-        margin-bottom: 20px;
-        animation-delay: 0.5s; /* Ajuste en el retraso de animación */
-    }
-
-    .card img {
-        height: 150px; /* Ajuste del tamaño de la imagen en móviles */
-    }
-
-    .link-proyecto {
-        font-size: 14px; /* Cambiar el tamaño de la fuente del enlace en móviles */
-        padding: 6px 12px;
-    }
-}
-
-/* Responsividad para dispositivos muy pequeños (móviles más pequeños) */
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
-
-    #inicio h1 {
-        font-size: 36px;
-    }
-
-    #inicio p {
-        font-size: 14px;
-    }
-
-    #acerca-de h1 {
-        font-size: 30px;
-    }
-
-    #acerca-de p {
-        font-size: 14px;
-    }
-
-    .card {
-        width: 100%; /* Las tarjetas ocupan el 100% del ancho */
-        height: auto;
-    }
-
-    .card img {
-        height: 140px; /* Aseguramos que las imágenes no sean muy grandes */
-    }
-
-    .link-proyecto {
-        font-size: 14px;
-        padding: 6px 12px;
     }
 }
 
@@ -475,17 +723,15 @@ section p {
         width: 50%;
     }
 
-    /* Asegura que la imagen de la sección "Acerca de" y el texto estén bien alineados */
     #acerca-de .image-container {
         width: 40%;
     }
 
     #acerca-de img {
-        width: 100%; /* Tamaño de la imagen para pantallas grandes */
+        width: 100%;
         border-radius: 50%;
     }
 
-    /* Estilos para la sección de "Portafolio" */
     #portafolio {
         padding: 80px;
     }
@@ -504,7 +750,7 @@ section p {
     }
 
     .card {
-        width: 100%; /* Mantenemos las tarjetas de proyecto con un 30% de ancho */
+        width: 100%;
         height: 480px;
         display: flex;
         flex-direction: column;
